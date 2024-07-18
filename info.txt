@@ -7,3 +7,5 @@ npm install  -g maildev
 php artisan make:mail SendMail
 php artisan make:event NewUserCreated
 php artisan make:listener SendEmailVerification
+
+php artisan queue:work
