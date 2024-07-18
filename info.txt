@@ -1,5 +1,8 @@
 https://www.youtube.com/watch?v=mimRnvHpsg0
 
+composer require spatie/laravel-ignition --dev
+composer require laravel/reverb
+
 php artisan install:api
 npm install  -g maildev
     run: maildev
