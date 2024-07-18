@@ -31,13 +31,15 @@ class ProjectController extends Controller
         $query = $request->get('query');
         $projects = Project::with(['task_progress']);
 
-        if (!is_null($query)  && $query !== '') {
+        if (!is_null($query)  && $query !== '')
+        {
             $projects->where('name', 'like', '%' . $query . '%')
                 ->orderBy('id', 'desc');
-
-            return response(['data' => $projects->paginate(10)], 200);
         }
-        return response(['data' => $projects->paginate(10)], 200);
+        
+        $result = $projects->paginate(10);
+        
+        return response(['data' => $result], 200);
     }
     
     public function store(Request $request)

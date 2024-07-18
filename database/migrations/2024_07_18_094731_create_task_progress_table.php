@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('task_progress', function (Blueprint $table) {
             $table->id();
+            
             $table->integer('projectId');
+            
             $table->integer('pinned_on_dashbaord');
             $table->string('progress');
             $table->timestamps();
+            
         });
     }
 
