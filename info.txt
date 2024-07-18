@@ -3,3 +3,7 @@ https://www.youtube.com/watch?v=mimRnvHpsg0
 php artisan install:api
 npm install  -g maildev
     run: maildev
+
+php artisan make:mail SendMail
+php artisan make:event NewUserCreated
+php artisan make:listener SendEmailVerification
