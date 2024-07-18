@@ -70,7 +70,7 @@ class AuthController extends Controller
         return response(['user' => $user, 'message' => 'user created'], 200);
     }
     
-/**
+    /**
      * Handle user login.
      * 
      * @param \Illuminate\Http\Request $request
