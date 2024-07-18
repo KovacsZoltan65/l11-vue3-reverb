@@ -11,4 +11,8 @@ php artisan make:mail SendMail
 php artisan make:event NewUserCreated
 php artisan make:listener SendEmailVerification
 
+php artisan make:model Project -m
+
+php artisan make:controller Project
+
 php artisan queue:work
