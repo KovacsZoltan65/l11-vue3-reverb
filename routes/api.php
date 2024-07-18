@@ -18,6 +18,7 @@ Route::post('/login', [App\Http\Controllers\AuthController::class, 'login'])->na
 
 Route::post('/projects', [App\Http\Controllers\ProjectController::class, 'store']);
 Route::put('/projects', [App\Http\Controllers\ProjectController::class, 'update']);
+Route::get('/projects', [App\Http\Controllers\ProjectController::class, 'index']);
 
 Route::get('/user', function (Request $request) {
     return $request->user();
