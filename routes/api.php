@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +13,11 @@ use Illuminate\Support\Facades\Route;
  * @param Request $request The HTTP request containing the user data.
  * @return \Illuminate\Http\JsonResponse The JSON response containing the user data and a success message.
  */
-Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [App\Http\Controllers\AuthController::class, 'register'])->name('register');
+Route::post('/login', [App\Http\Controllers\AuthController::class, 'login'])->name('login');
 
-Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/projects', [App\Http\Controllers\ProjectController::class, 'store']);
+Route::put('/projects', [App\Http\Controllers\ProjectController::class, 'update']);
 
 Route::get('/user', function (Request $request) {
     return $request->user();
