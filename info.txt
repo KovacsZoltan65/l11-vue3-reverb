@@ -1,0 +1,5 @@
+https://www.youtube.com/watch?v=mimRnvHpsg0
+
+php artisan install:api
+npm install  -g maildev
+    run: maildev
