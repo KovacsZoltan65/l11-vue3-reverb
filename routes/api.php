@@ -28,7 +28,11 @@ Route::controller(App\Http\Controllers\ProjectController::class)->group(function
     
 });
 
-
+Route::controller(\App\Http\Controllers\MemberController::class)->group(function(){
+    Route::post('/members', 'store');
+    Route::put('/members', 'update');
+    Route::get('/members', 'index');
+});
 
 Route::get('/user', function (Request $request) {
     return $request->user();
