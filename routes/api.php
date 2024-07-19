@@ -26,6 +26,7 @@ Route::controller(App\Http\Controllers\ProjectController::class)->group(function
     Route::get('/projects', 'index');
     Route::post('/projects/pinned', 'pinnedProject');
     Route::get('/projects/{slug}', 'getProject');
+    Route::get('/count/projects','countProject');
 });
 
 Route::controller(\App\Http\Controllers\MemberController::class)->group(function(){
