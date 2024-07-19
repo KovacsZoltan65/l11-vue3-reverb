@@ -114,24 +114,24 @@ class ProjectController extends Controller
 
         return DB::transaction(function () use ($request) {
 
-
             $fields = $request->all();
 
             $errors = Validator::make($fields, [
-                'projectId' => 'required|numeric',
+                'projectId' => ['required', 'numeric'],
 
             ]);
 
             if ($errors->fails()) {
                 return response($errors->errors()->all(), 422);
             }
-            TaskProgress::where('pinned_on_dashbaord', TaskProgress::PINNED_ON_DASHBOARD)
-                ->update(['pinned_on_dashbaord' => TaskProgress::NOT_PINNED_ON_DASHBOARD]);
+            
+            //TaskProgress::where('pinned_on_dashbaord', TaskProgress::PINNED_ON_DASHBOARD)->update(['pinned_on_dashbaord' => TaskProgress::NOT_PINNED_ON_DASHBOARD]);
 
             TaskProgress::where('projectId', $fields['projectId'])
                 ->update([
                     'pinned_on_dashbaord' => TaskProgress::PINNED_ON_DASHBOARD
                 ]);
+            
             return response(['message' => 'project pinned on dashboard !']);
         });
     }
