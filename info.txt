@@ -12,7 +12,9 @@ php artisan make:event NewUserCreated
 php artisan make:listener SendEmailVerification
 
 php artisan make:model Project -m
+php artisan make:model Member -m
 
-php artisan make:controller Project
+php artisan make:controller ProjectController
+php artisan make:controller MemberController
 
 php artisan queue:work
