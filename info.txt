@@ -13,8 +13,13 @@ php artisan make:listener SendEmailVerification
 
 php artisan make:model Project -m
 php artisan make:model Member -m
+php artisan make:model Task -m
+php artisan make:model TaskMember -m
 
 php artisan make:controller ProjectController
 php artisan make:controller MemberController
+php artisan make:controller TaskController
+
+php artisan make:migration CreateTaskTable
 
 php artisan queue:work
