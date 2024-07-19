@@ -34,6 +34,18 @@ Route::controller(\App\Http\Controllers\MemberController::class)->group(function
     Route::get('/members', 'index');
 });
 
+Route::controller(App\Http\Controllers\TaskController::class)->group(function(){
+    Route::post('/tasks','createTask'); //finish
+    Route::post('tasks/not_started_to_pending','TaskToNotStartedToPending'); //work on
+    Route::post('tasks/pending_to_completed','TaskToPendingToCompleted'); //work on
+    Route::post('tasks/completed_to_pending','TaskToCompletedToPending'); //work on
+
+    Route::post('tasks/completed_to_not_started','TaskToCompletedToNotStarted'); //home work
+    Route::post('tasks/not_started_to_completed','TaskToNotStartedToCompleted');  //home work
+    Route::post('tasks/pending_to_not_started','TaskToPendingToNotStarted');  //home work
+
+});
+
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
