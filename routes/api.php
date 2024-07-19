@@ -13,13 +13,22 @@ use Illuminate\Support\Facades\Route;
  * @param Request $request The HTTP request containing the user data.
  * @return \Illuminate\Http\JsonResponse The JSON response containing the user data and a success message.
  */
-Route::post('/register', [App\Http\Controllers\AuthController::class, 'register'])->name('register');
-Route::post('/login', [App\Http\Controllers\AuthController::class, 'login'])->name('login');
 
-Route::post('/projects', [App\Http\Controllers\ProjectController::class, 'store']);
-Route::put('/projects', [App\Http\Controllers\ProjectController::class, 'update']);
-Route::get('/projects', [App\Http\Controllers\ProjectController::class, 'index']);
-Route::post('/projects/pinned', [App\Http\Controllers\ProjectController::class, 'pinnedProject']);
+Route::controller(App\Http\Controllers\AuthController::class)->group(function(){
+    Route::post('/register', 'register')->name('register');
+    Route::post('/login', 'login')->name('login'); 
+});
+
+Route::controller(App\Http\Controllers\ProjectController::class)->group(function(){
+
+    Route::post('/projects', 'store');
+    Route::put('/projects', 'update');
+    Route::get('/projects', 'index');
+    Route::post('/projects/pinned', 'pinnedProject');
+    
+});
+
+
 
 Route::get('/user', function (Request $request) {
     return $request->user();
