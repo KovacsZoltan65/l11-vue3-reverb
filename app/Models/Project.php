@@ -20,7 +20,7 @@ class Project extends Model
     public static function createSlug($name)
     {
         $code = Generators::generateRandomCode();
-        $slug=Str::slug($name) . '-' . $code;
+        $slug = Str::slug($name) . '-' . $code;
         
         return $slug;
     }

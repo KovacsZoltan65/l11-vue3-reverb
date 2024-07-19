@@ -1,4 +1,5 @@
 https://www.youtube.com/watch?v=mimRnvHpsg0
+https://www.youtube.com/watch?v=oKzC40KW4F4
 
 composer require spatie/laravel-ignition --dev
 composer require laravel/reverb
