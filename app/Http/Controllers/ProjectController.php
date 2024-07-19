@@ -83,7 +83,6 @@ class ProjectController extends Controller
     
     public function update(Request $request)
     {
-
         $fields = $request->all();
 
         $errors = Validator::make($fields, [
@@ -111,7 +110,6 @@ class ProjectController extends Controller
     
     public function pinnedProject(Request $request)
     {
-
         return DB::transaction(function () use ($request) {
 
             $fields = $request->all();
@@ -144,7 +142,6 @@ class ProjectController extends Controller
     
      public function getPinnedProject(Request $request)
     {
-
         $project = DB::table('task_progress')
             ->join('projects', 'task_progress.projectId', '=', 'projects.id')
             ->select('projects.id', 'projects.name')

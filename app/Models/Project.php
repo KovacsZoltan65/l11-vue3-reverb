@@ -17,6 +17,9 @@ class Project extends Model
     
     protected $guarded = [];
 
+    protected $table = 'projects';
+
+
     public static function createSlug($name)
     {
         $code = Generators::generateRandomCode();
